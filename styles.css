@@ -85,9 +85,48 @@ header {
     margin: 40px auto;
     padding: 0 20px;
     display: flex;
+    flex-direction: column; /* Apila los bloques hacia abajo */
+    align-items: center;
+}
+
+/* BLOQUES DE DISTRIBUCIÓN */
+.bloque-principal {
+    width: 100%;
+    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.bloque-proximos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Organiza a los demás uno al lado del otro */
     gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* TEXTO SEPARADOR BIZARRO GIGANTE */
+.separador-bizarro {
+    width: 100%;
+    text-align: center;
+    margin: 60px 0 40px 0;
+}
+
+.texto-loco {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 3.5rem; /* Más grande e imponente */
+    letter-spacing: 8px;
+    color: #ff3333;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #ff0000, 0 0 25px #ff5500, 0 0 40px #ffaa00;
+    animation: distorsion 0.3s infinite alternate;
+    display: inline-block;
+}
+
+@keyframes distorsion {
+    0% { transform: skewX(-6deg) scale(0.98); }
+    100% { transform: skewX(6deg) scale(1.04); }
 }
 
 /* TARJETA DE INTEGRANTE */
@@ -98,20 +137,25 @@ header {
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    width: 200px;
-    cursor: pointer;
+    width: 170px; /* Compactas para que queden bien en cuadrícula */
     display: flex;
     flex-direction: column;
     align-items: center; 
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    background-color: rgba(255, 255, 255, 0.2);
+.card.prox {
+    cursor: default;
+    opacity: 0.8;
 }
 
-/* FOTO DE PERFIL OPTIMIZADA Y CIRCULAR */
+.card:not(.prox):hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+/* FOTO DE PERFIL CIRCULAR */
 .foto-perfil {
     width: 85px;   
     height: 85px;  
@@ -124,7 +168,7 @@ header {
 
 .card h2 {
     margin-bottom: 4px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .card p {
@@ -132,18 +176,18 @@ header {
     font-size: 0.8rem;
 }
 
-/* VENTANA MODAL (GALERÍA) - CORREGIDO AQUÍ */
+/* VENTANA MODAL (GALERÍA) */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #111111; /* Fondo oscuro sólido que tapa por completo lo de atrás */
+    background-color: #111111; 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5000; /* Prioridad alta para ponerse por encima de integrantes y perfil */
+    z-index: 5000; 
 }
 
 .modal-content {
@@ -208,7 +252,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 6000; /* Todavía más alto que el modal para que el zoom funcione arriba */
+    z-index: 6000; 
     cursor: pointer;
 }
 

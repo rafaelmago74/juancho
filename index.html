@@ -16,34 +16,36 @@
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL (OCULTO AL PRINCIPIO) -->
+    <!-- CONTENIDO PRINCIPAL -->
     <div id="main-content" class="hidden">
         <header>
             <h1>Integrantes</h1>
         </header>
 
         <main class="container">
-            <!-- TARJETA DE PANCHO -->
+            <!-- TARJETA DE BANCHO -->
             <div class="card" onclick="abrirModal()">
-                <div class="card-avatar">👤</div>
-                <h2>Pancho</h2>
+                <!-- Tu foto de perfil específica para Bancho -->
+                <img src="perfilbancho.jpg" alt="Perfil Bancho" class="foto-perfil">
+                <h2>Bancho</h2>
                 <p>Click para ver fotos</p>
             </div>
         </main>
     </div>
 
-    <!-- VENTANA MODAL DE LA GALERÍA DE PANCHO -->
+    <!-- VENTANA MODAL DE LA GALERÍA DE BANCHO -->
     <div id="modal-galeria" class="modal hidden">
         <div class="modal-content">
             <span class="close-btn" onclick="cerrarModal()">&times;</span>
-            <h2>Fotos de Pancho</h2>
+            <h2>Fotos de Bancho</h2>
             <div class="grid-galeria">
-                <!-- Se asume que las fotos se llaman exactamente así en tu GitHub -->
-                <img src="pancho1.jpg" alt="Pancho 1" onclick="abrirLightbox(this.src)">
-                <img src="pancho2.jpg" alt="Pancho 2" onclick="abrirLightbox(this.src)">
-                <img src="pancho3.jpg" alt="Pancho 3" onclick="abrirLightbox(this.src)">
-                <img src="pancho4.jpg" alt="Pancho 4" onclick="abrirLightbox(this.src)">
-                <img src="pancho5.jpg" alt="Pancho 5" onclick="abrirLightbox(this.src)">
+                <!-- Las 6 fotos de Bancho clickeables para zoom -->
+                <img src="bancho1.jpg" alt="Bancho 1" onclick="abrirLightbox(this.src)">
+                <img src="bancho2.jpg" alt="Bancho 2" onclick="abrirLightbox(this.src)">
+                <img src="bancho3.jpg" alt="Bancho 3" onclick="abrirLightbox(this.src)">
+                <img src="bancho4.jpg" alt="Bancho 4" onclick="abrirLightbox(this.src)">
+                <img src="bancho5.jpg" alt="Bancho 5" onclick="abrirLightbox(this.src)">
+                <img src="bancho6.jpg" alt="Bancho 6" onclick="abrirLightbox(this.src)">
             </div>
         </div>
     </div>
@@ -66,10 +68,10 @@
                 splash.style.display = 'none';
                 main.classList.remove('hidden');
                 main.classList.add('fade-in');
-            }, 500); // Espera que termine la animación de desvanecimiento
+            }, 500);
         }
 
-        // Funciones para el Modal de Pancho
+        // Funciones para la ventana de Bancho
         function abrirModal() {
             document.getElementById('modal-galeria').classList.remove('hidden');
         }
@@ -77,7 +79,7 @@
             document.getElementById('modal-galeria').classList.add('hidden');
         }
 
-        // Funciones para el Zoom de las fotos (Lightbox)
+        // Funciones para el Zoom (Lightbox)
         function abrirLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('img-lightbox');

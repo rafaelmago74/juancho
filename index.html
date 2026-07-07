@@ -8,6 +8,7 @@
 </head>
 <body>
 
+    <!-- PANTALLA DE BIENVENIDA (SPLASH SCREEN) -->
     <div id="splash-screen" onclick="entrarSitio()">
         <div class="splash-content">
             <h1>Juancho 2026</h1>
@@ -15,6 +16,7 @@
         </div>
     </div>
 
+    <!-- CONTENIDO PRINCIPAL -->
     <div id="main-content" class="hidden">
         <header>
             <h1>Integrantes</h1>
@@ -22,28 +24,37 @@
 
         <main class="container">
             
+            <!-- CONTENEDOR DE INTEGRANTES ACTIVOS (ARRIBA) -->
             <div class="bloque-principal">
-                <div class="card" onclick="abrirModal()">
+                
+                <!-- TARJETA DE BANCHO -->
+                <div class="card" onclick="abrirModal('modal-bancho')">
                     <img src="perfilpancho.jpg" alt="" class="foto-perfil">
                     <h2>Bancho</h2>
                     <p>Click para ver fotos</p>
                 </div>
+
+                <!-- TARJETA DE BIRO (NUEVO INTEGRANTE ACTIVO) -->
+                <div class="card" onclick="abrirModal('modal-biro')">
+                    <!-- Usa su foto de perfil específica -->
+                    <img src="perfilbiro.jpg" alt="" class="foto-perfil">
+                    <h2>Biro</h2>
+                    <p>Click para ver fotos</p>
+                </div>
+
             </div>
 
+            <!-- CARTEL GIGANTE BAJO LOS PERFILES ACTIVOS -->
             <div class="separador-bizarro">
                 <span class="texto-loco">PRÓXIMAMENTE</span>
             </div>
 
+            <!-- CONTENEDOR DE LOS DEMÁS INTEGRANTES ORDENADOS -->
             <div class="bloque-proximos">
                 
                 <div class="card prox">
                     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil">
                     <h2>Chino</h2>
-                </div>
-
-                <div class="card prox">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil">
-                    <h2>Biro</h2>
                 </div>
 
                 <div class="card prox">
@@ -80,9 +91,10 @@
         </main>
     </div>
 
-    <div id="modal-galeria" class="modal hidden">
+    <!-- VENTANA MODAL DE LA GALERÍA DE BANCHO -->
+    <div id="modal-bancho" class="modal hidden">
         <div class="modal-content">
-            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            <span class="close-btn" onclick="cerrarModal('modal-bancho')">&times;</span>
             <h2>Fotos de Bancho</h2>
             <div class="grid-galeria">
                 <img src="bancho1.jpg" alt="Foto 1" onclick="abrirLightbox(this.src)">
@@ -95,11 +107,30 @@
         </div>
     </div>
 
+    <!-- VENTANA MODAL DE LA GALERÍA DE BIRO -->
+    <div id="modal-biro" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal('modal-biro')">&times;</span>
+            <h2>Fotos de Biro</h2>
+            <div class="grid-galeria">
+                <!-- Cuando tengas sus fotos en GitHub, cambiá estos nombres (ej: biro1.jpg) -->
+                <img src="bancho1.jpg" alt="Foto 1" onclick="abrirLightbox(this.src)">
+                <img src="bancho2.jpg" alt="Foto 2" onclick="abrirLightbox(this.src)">
+                <img src="bancho3.jpg" alt="Foto 3" onclick="abrirLightbox(this.src)">
+                <img src="bancho4.jpg" alt="Foto 4" onclick="abrirLightbox(this.src)">
+                <img src="bancho5.jpg" alt="Foto 5" onclick="abrirLightbox(this.src)">
+                <img src="bancho6.jpg" alt="Foto 6" onclick="abrirLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- VENTANA LIGHTBOX (ZOOM) -->
     <div id="lightbox" class="lightbox hidden" onclick="cerrarLightbox()">
         <span class="close-lightbox">&times;</span>
         <img id="img-lightbox" src="" alt="Zoom">
     </div>
 
+    <!-- LÓGICA EN JAVASCRIPT -->
     <script>
         function entrarSitio() {
             const splash = document.getElementById('splash-screen');
@@ -113,11 +144,12 @@
             }, 500);
         }
 
-        function abrirModal() {
-            document.getElementById('modal-galeria').classList.remove('hidden');
+        // Funciones corregidas para abrir y cerrar el modal específico de cada uno
+        function abrirModal(idModal) {
+            document.getElementById(idModal).classList.remove('hidden');
         }
-        function cerrarModal() {
-            document.getElementById('modal-galeria').classList.add('hidden');
+        function cerrarModal(idModal) {
+            document.getElementById(idModal).classList.add('hidden');
         }
 
         function abrirLightbox(src) {

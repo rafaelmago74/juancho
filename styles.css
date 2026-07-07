@@ -1,132 +1,297 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juancho 2026</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* ESTILOS GENERALES Y FONDO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
-    <!-- PANTALLA DE BIENVENIDA (SPLASH SCREEN) -->
-    <div id="splash-screen" onclick="entrarSitio()">
-        <div class="splash-content">
-            <h1>Juancho 2026</h1>
-            <p>Click para entrar</p>
-        </div>
-    </div>
+body {
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <div id="main-content" class="hidden">
-        <!-- HEADER CON EASTER EGG -->
-        <header class="header-huevo">
-            <h1 class="titulo-normal">Integrantes</h1>
-            <h1 class="titulo-oculto">PASENME LA LUCA CIEN</h1>
-        </header>
+/* PANTALLA DE BIENVENIDA (SPLASH) */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+}
 
-        <main class="container">
-            
-            <!-- CONTENEDOR DE INTEGRANTES ACTIVOS (ARRIBA) -->
-            <div class="bloque-principal">
-                
-                <!-- TARJETA DE BANCHO -->
-                <div class="card" onclick="abrirModal('modal-bancho')">
-                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
-                    <h2>Bancho</h2>
-                    <p>Click para ver fotos</p>
-                </div>
+.splash-content h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0px 4px 15px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    margin-bottom: 10px;
+}
 
-                <!-- TARJETA DE BIRO -->
-                <div class="card" onclick="abrirModal('modal-biro')">
-                    <img src="perfilbiro.jpg" alt="" class="foto-perfil">
-                    <h2>Biro</h2>
-                    <p>Click para ver fotos</p>
-                </div>
+.splash-content p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ccc;
+    animation: parpadeo 1.5s infinite;
+}
 
-            </div>
+@keyframes parpadeo {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
 
-            <!-- CARTEL GIGANTE BAJO LOS PERFILES ACTIVOS -->
-            <div class="separador-bizarro">
-                <span class="texto-loco">PRÓXIMAMENTE</span>
-            </div>
+/* ANIMACIONES */
+.fade-out {
+    opacity: 0 !important;
+}
 
-            <!-- CONTENEDOR DE LOS DEMÁS INTEGRANTES ORDENADOS -->
-            <div class="bloque-proximos">
-                <div class="card prox"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil"><h2>Chino</h2></div>
-                <div class="card prox"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil"><h2>Totiapijuda</h2></div>
-                <div class="card prox"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil"><h2>Marto</h2></div>
-                <div class="card prox"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil"><h2>Elgimenez</h2></div>
-                <div class="card prox"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil"><h2>Valerio</h2></div>
-                <div class="card prox"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil"><h2>Plim</h2></div>
-                <div class="card prox"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=200&auto=format&fit=crop" alt="?" class="foto-perfil"><h2>Arbol</h2></div>
-            </div>
-        </main>
-    </div>
+.hidden {
+    display: none !important;
+}
 
-    <!-- VENTANA MODAL DE LA GALERÍA DE BANCHO (7 FOTOS) -->
-    <div id="modal-bancho" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn" onclick="cerrarModal('modal-bancho')">&times;</span>
-            <h2>Fotos de Bancho</h2>
-            <div class="grid-galeria">
-                <img src="bancho1.jpg" alt="Foto 1" onclick="abrirLightbox(this.src)">
-                <img src="bancho2.jpg" alt="Foto 2" onclick="abrirLightbox(this.src)">
-                <img src="bancho3.jpg" alt="Foto 3" onclick="abrirLightbox(this.src)">
-                <img src="bancho4.jpg" alt="Foto 4" onclick="abrirLightbox(this.src)">
-                <img src="bancho5.jpg" alt="Foto 5" onclick="abrirLightbox(this.src)">
-                <img src="bancho6.jpg" alt="Foto 6" onclick="abrirLightbox(this.src)">
-                <img src="bancho7.jpg" alt="Foto 7" onclick="abrirLightbox(this.src)">
-            </div>
-        </div>
-    </div>
+.fade-in {
+    animation: aparecer 0.6s ease forwards;
+}
 
-    <!-- VENTANA MODAL DE LA GALERÍA DE BIRO (SÓLO SUS 2 FOTOS) -->
-    <div id="modal-biro" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn" onclick="cerrarModal('modal-biro')">&times;</span>
-            <h2>Fotos de Biro</h2>
-            <div class="grid-galeria">
-                <img src="biro1.jpg" alt="Biro 1" onclick="abrirLightbox(this.src)">
-                <img src="biro2.jpg" alt="Biro 2" onclick="abrirLightbox(this.src)">
-            </div>
-        </div>
-    </div>
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
-    <!-- VENTANA LIGHTBOX (ZOOM) -->
-    <div id="lightbox" class="lightbox hidden" onclick="cerrarLightbox()">
-        <span class="close-lightbox">&times;</span>
-        <img id="img-lightbox" src="" alt="Zoom">
-    </div>
+/* CONTENIDO PRINCIPAL */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
 
-    <!-- LÓGICA EN JAVASCRIPT -->
-    <script>
-        function entrarSitio() {
-            const splash = document.getElementById('splash-screen');
-            const main = document.getElementById('main-content');
-            splash.classList.add('fade-out');
-            setTimeout(() => {
-                splash.style.display = 'none';
-                main.classList.remove('hidden');
-                main.classList.add('fade-in');
-            }, 500);
-        }
+header h1 {
+    font-size: 2.5rem;
+}
 
-        function abrirModal(idModal) {
-            document.getElementById(idModal).classList.remove('hidden');
-        }
-        function cerrarModal(idModal) {
-            document.getElementById(idModal).classList.add('hidden');
-        }
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        function abrirLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('img-lightbox');
-            img.src = src;
-            lightbox.classList.remove('hidden');
-        }
-        function cerrarLightbox() {
-            document.getElementById('lightbox').classList.add('hidden');
-        }
-    </script>
-</body>
-</html>
+/* BLOQUES DE DISTRIBUCIÓN */
+.bloque-principal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bloque-proximos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* TEXTO SEPARADOR BIZARRO GIGANTE */
+.separador-bizarro {
+    width: 100%;
+    text-align: center;
+    margin: 60px 0 40px 0;
+}
+
+.texto-loco {
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 8px;
+    color: #ff3333;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #ff0000, 0 0 25px #ff5500, 0 0 40px #ffaa00;
+    animation: distorsion 0.3s infinite alternate;
+    display: inline-block;
+}
+
+@keyframes distorsion {
+    0% { transform: skewX(-6deg) scale(0.98); }
+    100% { transform: skewX(6deg) scale(1.04); }
+}
+
+/* TARJETA DE INTEGRANTE */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card.prox {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.card:not(.prox):hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+/* FOTO DE PERFIL CIRCULAR */
+.foto-perfil {
+    width: 85px;   
+    height: 85px;  
+    border-radius: 50%; 
+    object-fit: cover;  
+    margin-bottom: 12px; 
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    margin-bottom: 4px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: #ddd;
+    font-size: 0.8rem;
+}
+
+/* FOOTER Y ESTILO DEL EASTER EGG LIMPIO */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+.huevo-seguro {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.25); /* Gris clarito muy sutil */
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+/* VENTANA MODAL (GALERÍA) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111111; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000; 
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #bbb;
+}
+
+.close-btn:hover {
+    color: #fff;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* CUADRÍCULA DE FOTOS */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+.grid-galeria img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.grid-galeria img:hover {
+    transform: scale(1.04);
+    filter: brightness(1.2);
+}
+
+/* LIGHTBOX (ZOOM) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 6000; 
+    cursor: pointer;
+}
+
+#img-lightbox {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 4px;
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
+    animation: zoomIn 0.25s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}

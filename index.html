@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="splash-open">
 
   <!-- ============================================================
        ✏️  GUÍA RÁPIDA DE EDICIÓN
@@ -17,7 +17,17 @@
        - Para agregar integrantes, andá al final del archivo,
          al bloque "const INTEGRANTES" dentro del <script>, y agregá
          un objeto nuevo copiando el ejemplo de bancho.
+       - El texto del splash ("JUANCHO 2026") se edita directo
+         en el <h1> de acá abajo.
      ============================================================ -->
+
+  <!-- ================= SPLASH SCREEN ================= -->
+  <div class="splash" id="splash">
+    <div class="splash__content">
+      <h1 class="splash__title">JUANCHO<span>2026</span></h1>
+      <p class="splash__hint">Tocá en cualquier parte para entrar</p>
+    </div>
+  </div>
 
   <header class="nav">
     <a href="#inicio" class="nav__logo">Nuestra Galería<span>.</span></a>
@@ -193,6 +203,16 @@
   // Cerrar con la tecla Escape
   document.addEventListener('keydown', (evento) => {
     if(evento.key === 'Escape' && overlay.classList.contains('is-open')) cerrarModal();
+  });
+
+  // ---------- Splash screen "JUANCHO 2026" ----------
+  const splash = document.getElementById('splash');
+
+  splash.addEventListener('click', () => {
+    splash.classList.add('splash--hide');
+    document.body.classList.remove('splash-open');
+    // Espera a que termine el desvanecimiento antes de sacarlo del DOM
+    setTimeout(() => splash.remove(), 700);
   });
 </script>
 </body>

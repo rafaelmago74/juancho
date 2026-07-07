@@ -86,7 +86,7 @@ header {
     padding: 0 20px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que cuando sumes más integrantes se pongan al lado */
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -98,11 +98,11 @@ header {
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    width: 200px; /* Ancho compacto e ideal para meter varios en fila */
+    width: 200px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra la foto y el nombre en el eje vertical */
+    align-items: center; 
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -113,11 +113,11 @@ header {
 
 /* FOTO DE PERFIL OPTIMIZADA Y CIRCULAR */
 .foto-perfil {
-    width: 85px;   /* Tamaño controlado e ideal para múltiples perfiles */
-    height: 85px;  /* Mismo alto que ancho para que el círculo no se deforme */
-    border-radius: 50%; /* Fuerza a que sea 100% redonda */
-    object-fit: cover;  /* Centra la imagen adentro recortando los bordes sobrantes */
-    margin-bottom: 12px; /* Espacio justo entre la foto y el nombre Bancho */
+    width: 85px;   
+    height: 85px;  
+    border-radius: 50%; 
+    object-fit: cover;  
+    margin-bottom: 12px; 
     border: 3px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -132,18 +132,18 @@ header {
     font-size: 0.8rem;
 }
 
-/* VENTANA MODAL (GALERÍA) */
+/* VENTANA MODAL (GALERÍA) - CORREGIDO AQUÍ */
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #111111; /* Fondo oscuro sólido que tapa por completo lo de atrás */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 5000; /* Prioridad alta para ponerse por encima de integrantes y perfil */
 }
 
 .modal-content {
@@ -155,13 +155,14 @@ header {
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .close-btn {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 2rem;
+    font-size: 2.5rem;
     cursor: pointer;
     color: #bbb;
 }
@@ -207,7 +208,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1100;
+    z-index: 6000; /* Todavía más alto que el modal para que el zoom funcione arriba */
     cursor: pointer;
 }
 

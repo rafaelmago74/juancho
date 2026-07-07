@@ -21,10 +21,60 @@
         </header>
 
         <main class="container">
-            <div class="card" onclick="abrirModal()">
-                <img src="perfilpancho.jpg" alt="" class="foto-perfil">
-                <h2>Bancho</h2>
-                <p>Click para ver fotos</p>
+            <div class="seccion-activos">
+                <div class="card" onclick="abrirModal()">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Bancho</h2>
+                    <p>Click para ver fotos</p>
+                </div>
+            </div>
+
+            <div class="separador-bizarro">
+                <span class="texto-loco">PRÓXIMAMENTE</span>
+            </div>
+
+            <div class="seccion-proximos">
+                
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Chino</h2>
+                </div>
+
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Biro</h2>
+                </div>
+
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Totiapijuda</h2>
+                </div>
+
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Marto</h2>
+                </div>
+
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Elgimenez</h2>
+                </div>
+
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Valerio</h2>
+                </div>
+
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Plim</h2>
+                </div>
+
+                <div class="card prox">
+                    <img src="perfilpancho.jpg" alt="" class="foto-perfil">
+                    <h2>Arbol</h2>
+                </div>
+
             </div>
         </main>
     </div>
@@ -50,7 +100,6 @@
     </div>
 
     <script>
-        // Función para ocultar la bienvenida y mostrar los integrantes
         function entrarSitio() {
             const splash = document.getElementById('splash-screen');
             const main = document.getElementById('main-content');
@@ -63,7 +112,6 @@
             }, 500);
         }
 
-        // Funciones para abrir y cerrar la galería de Bancho
         function abrirModal() {
             document.getElementById('modal-galeria').classList.remove('hidden');
         }
@@ -71,7 +119,6 @@
             document.getElementById('modal-galeria').classList.add('hidden');
         }
 
-        // Funciones para el Zoom de las imágenes (Lightbox)
         function abrirLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('img-lightbox');

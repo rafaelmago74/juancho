@@ -101,11 +101,18 @@
         <img id="img-lightbox" src="" alt="Zoom">
     </div>
 
+    <!-- AUDIO DE FONDO -->
+    <audio id="musica-fondo" src="musica.mp3" loop></audio>
+
     <!-- LÓGICA EN JAVASCRIPT -->
     <script>
         function entrarSitio() {
             const splash = document.getElementById('splash-screen');
             const main = document.getElementById('main-content');
+            const musica = document.getElementById('musica-fondo');
+
+            musica.play();
+
             splash.classList.add('fade-out');
             setTimeout(() => {
                 splash.style.display = 'none';

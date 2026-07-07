@@ -24,7 +24,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro semitransparente para que resalte las letras */
+    background-color: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,7 +77,7 @@ body {
 header {
     text-align: center;
     padding: 40px 20px;
-    background-color: rgba(0, 0, 0, 0.6); /* Capa oscura para leer bien los textos sobre tu fondo */
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .container {
@@ -86,18 +86,23 @@ header {
     padding: 0 20px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Permite que cuando sumes más integrantes se pongan al lado */
+    gap: 20px;
 }
 
 /* TARJETA DE INTEGRANTE */
 .card {
     background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px); /* Hace un efecto borroso lindo sobre tu fondo */
+    backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     text-align: center;
-    width: 280px;
+    width: 200px; /* Ancho compacto e ideal para meter varios en fila */
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra la foto y el nombre en el eje vertical */
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
@@ -106,19 +111,25 @@ header {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.card-avatar {
-    font-size: 4rem;
-    margin-bottom: 15px;
+/* FOTO DE PERFIL OPTIMIZADA Y CIRCULAR */
+.foto-perfil {
+    width: 85px;   /* Tamaño controlado e ideal para múltiples perfiles */
+    height: 85px;  /* Mismo alto que ancho para que el círculo no se deforme */
+    border-radius: 50%; /* Fuerza a que sea 100% redonda */
+    object-fit: cover;  /* Centra la imagen adentro recortando los bordes sobrantes */
+    margin-bottom: 12px; /* Espacio justo entre la foto y el nombre Bancho */
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {
-    margin-bottom: 8px;
-    font-size: 1.8rem;
+    margin-bottom: 4px;
+    font-size: 1.4rem;
 }
 
 .card p {
     color: #ddd;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 /* VENTANA MODAL (GALERÍA) */
@@ -185,7 +196,7 @@ header {
     filter: brightness(1.2);
 }
 
-/* LIGHTBOX (ZOOM PANTALLA COMPLETA) */
+/* LIGHTBOX (ZOOM) */
 .lightbox {
     position: fixed;
     top: 0;

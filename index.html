@@ -23,34 +23,34 @@
         </header>
 
         <main class="container">
-            <!-- TARJETA DE BANCHO -->
+            <!-- TARJETA DEL INTEGRANTE -->
             <div class="card" onclick="abrirModal()">
-                <!-- Se eliminó el texto alternativo visible y se mantiene la imagen limpia -->
+                <!-- Foto de perfil circular -->
                 <img src="perfilpancho.jpg" alt="" class="foto-perfil">
-                <h2>Bancho</h2>
+                <h2>Pancho</h2>
                 <p>Click para ver fotos</p>
             </div>
         </main>
     </div>
 
-    <!-- VENTANA MODAL DE LA GALERÍA DE BANCHO -->
+    <!-- VENTANA MODAL DE LA GALERÍA -->
     <div id="modal-galeria" class="modal hidden">
         <div class="modal-content">
             <span class="close-btn" onclick="cerrarModal()">&times;</span>
-            <h2>Fotos de Bancho</h2>
+            <h2>Fotos de Pancho</h2>
             <div class="grid-galeria">
-                <!-- Las 6 fotos de Bancho clickeables para zoom -->
-                <img src="bancho1.jpg" alt="Bancho 1" onclick="abrirLightbox(this.src)">
-                <img src="bancho2.jpg" alt="Bancho 2" onclick="abrirLightbox(this.src)">
-                <img src="bancho3.jpg" alt="Bancho 3" onclick="abrirLightbox(this.src)">
-                <img src="bancho4.jpg" alt="Bancho 4" onclick="abrirLightbox(this.src)">
-                <img src="bancho5.jpg" alt="Bancho 5" onclick="abrirLightbox(this.src)">
-                <img src="bancho6.jpg" alt="Bancho 6" onclick="abrirLightbox(this.src)">
+                <!-- Las 6 fotos clickeables para zoom -->
+                <img src="bancho1.jpg" alt="Foto 1" onclick="abrirLightbox(this.src)">
+                <img src="bancho2.jpg" alt="Foto 2" onclick="abrirLightbox(this.src)">
+                <img src="bancho3.jpg" alt="Foto 3" onclick="abrirLightbox(this.src)">
+                <img src="bancho4.jpg" alt="Foto 4" onclick="abrirLightbox(this.src)">
+                <img src="bancho5.jpg" alt="Foto 5" onclick="abrirLightbox(this.src)">
+                <img src="bancho6.jpg" alt="Foto 6" onclick="abrirLightbox(this.src)">
             </div>
         </div>
     </div>
 
-    <!-- VENTANA LIGHTBOX (ZOOM DE FOTO EN PANTALLA COMPLETA) -->
+    <!-- VENTANA LIGHTBOX (ZOOM DE FOTO) -->
     <div id="lightbox" class="lightbox hidden" onclick="cerrarLightbox()">
         <span class="close-lightbox">&times;</span>
         <img id="img-lightbox" src="" alt="Zoom">

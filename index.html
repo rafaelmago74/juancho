@@ -8,7 +8,6 @@
 </head>
 <body>
 
-    <!-- PANTALLA DE BIENVENIDA (SPLASH SCREEN) -->
     <div id="splash-screen" onclick="entrarSitio()">
         <div class="splash-content">
             <h1>Juancho 2026</h1>
@@ -16,30 +15,25 @@
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
     <div id="main-content" class="hidden">
         <header>
             <h1>Integrantes</h1>
         </header>
 
         <main class="container">
-            <!-- TARJETA DEL INTEGRANTE -->
             <div class="card" onclick="abrirModal()">
-                <!-- Foto de perfil circular -->
                 <img src="perfilpancho.jpg" alt="" class="foto-perfil">
-                <h2>Pancho</h2>
+                <h2>Bancho</h2>
                 <p>Click para ver fotos</p>
             </div>
         </main>
     </div>
 
-    <!-- VENTANA MODAL DE LA GALERÍA -->
     <div id="modal-galeria" class="modal hidden">
         <div class="modal-content">
             <span class="close-btn" onclick="cerrarModal()">&times;</span>
-            <h2>Fotos de Pancho</h2>
+            <h2>Fotos de Bancho</h2>
             <div class="grid-galeria">
-                <!-- Las 6 fotos clickeables para zoom -->
                 <img src="bancho1.jpg" alt="Foto 1" onclick="abrirLightbox(this.src)">
                 <img src="bancho2.jpg" alt="Foto 2" onclick="abrirLightbox(this.src)">
                 <img src="bancho3.jpg" alt="Foto 3" onclick="abrirLightbox(this.src)">
@@ -50,14 +44,13 @@
         </div>
     </div>
 
-    <!-- VENTANA LIGHTBOX (ZOOM DE FOTO) -->
     <div id="lightbox" class="lightbox hidden" onclick="cerrarLightbox()">
         <span class="close-lightbox">&times;</span>
         <img id="img-lightbox" src="" alt="Zoom">
     </div>
 
-    <!-- LÓGICA EN JAVASCRIPT -->
     <script>
+        // Función para ocultar la bienvenida y mostrar los integrantes
         function entrarSitio() {
             const splash = document.getElementById('splash-screen');
             const main = document.getElementById('main-content');
@@ -70,6 +63,7 @@
             }, 500);
         }
 
+        // Funciones para abrir y cerrar la galería de Bancho
         function abrirModal() {
             document.getElementById('modal-galeria').classList.remove('hidden');
         }
@@ -77,6 +71,7 @@
             document.getElementById('modal-galeria').classList.add('hidden');
         }
 
+        // Funciones para el Zoom de las imágenes (Lightbox)
         function abrirLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('img-lightbox');
